@@ -1,0 +1,10 @@
+FROM node:12.18-alpine
+
+WORKDIR /app
+
+COPY package.json .
+RUN npm install --silent
+# not strictly needed in dev
+COPY . .
+
+CMD ["npm", "run", "start"]
