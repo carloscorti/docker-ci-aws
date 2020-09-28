@@ -29,4 +29,13 @@ services:
   #     - '/app/node_modules'
   #   environment:
   #     - CHOKIDAR_USEPOLLING=true
+  #   command: ["npm","run","test-watch"]
+
+  # to start a container with test script from docker compose to CI
+  # testci:
+  #   container_name: test
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   tty: true
   #   command: ["npm","run","test"]
