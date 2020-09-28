@@ -3,11 +3,11 @@ sudo: required
 services:
   - docker
 
-# before_install:
-#   - docker build -t carlic/docker-ci-aws -f Dockerfile.citest .
+before_install:
+  - docker build -t carlic/docker-ci-aws -f Dockerfile.dev .
 
 script:
-  - docker build -t carlic/docker-ci-aws -f Dockerfile.citest .
+  - docker run carlic/docker-ci-aws npm run test
 
 # config to deploy to aws elsaticbeanstalk when master branch changes 
 # deploy:
