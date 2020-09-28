@@ -8,3 +8,20 @@ services:
 
 script:
   - docker build -t carlic/docker-ci-aws -f Dockerfile.citest .
+
+# config to deploy to aws elsaticbeanstalk when master branch changes 
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "us-west-2" #set in aws app url
+#   app: "docker" # name we gave to app in aws (All aplications --> docker)
+#   env: "Docker-env" # config env aws has created for the app (All aplications --> docker --> Docker-env)(base configution docker)
+#   bucket_name: "elasticbeanstalk-us-west-2-463788920" # s3 (services --> s3) bucket (aws already has created it) where travis will copi zip file to deply 
+#   bucket_path: "docker" # same name as app name (folder where travis will copi zip file to deploy)
+#   on:
+#     branch: master # wich github brunch will be watch to for deploy on changes
+#   # create user in services-->iam-->users and give 1º name, 2º programmatic acces, 3º full acces elsticbeanstalk acces from attach existing policies direclty 
+#   # that gives acces key and secret key
+#   # these key must be introduced as env varibles in travis project settings (do not display these keys in build log)
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key: 
+#     secure: "$AWS_SECRET_KEY"
